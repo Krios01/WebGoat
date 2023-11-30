@@ -21,7 +21,7 @@ jobs:
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            https://www.github.com/api/v3/repos/Krios01/WebGoat/code-scanning/alerts -o results.json
+            https://api.github.com/repos/Krios01/WebGoat/code-scanning/alerts -o results.json
           cat results.json
         
       - name: Check if there are open alerts and exit accordingly 
