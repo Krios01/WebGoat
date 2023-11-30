@@ -22,10 +22,13 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/Krios01/WebGoat/code-scanning/alerts -o results.json
-          cat results.json
         
       - name: Check if there are open alerts and exit accordingly 
         run: | 
           echo “Check if there are open alerts and exit accordingly”
-          cat results.json
+          if [ -f results.json ]; then
+            echo "File exists."
+          else
+            echo "File does not exist."
+          fi
           
